@@ -27,7 +27,7 @@ agi.verbose("Resposta: %s" % r.text)
 
 if r.status_code == 200:
     agi.verbose("Tratando resposta")
-    dados = validar.dados(json.loads(r.text))
+    dados = validar.dados(r.text)
     agi.verbose("Setando variaveis")
     #Setando variaveis no Asterisk
     agi.set_variable('_ECLIENTE',dados['ecliente'])
