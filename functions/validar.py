@@ -35,7 +35,7 @@ def dados(recebidos={}):
     if 'veiculos' in recebidos:
         adimplente_list = []
         sinistro_list = []
-        if len(recebidos['veiculos'] >= 1):
+        if len(recebidos['veiculos']) >= 1:
             for veiculo in recebidos['veiculos']:
 
                 #Verificando se o contrato está inadimplente
