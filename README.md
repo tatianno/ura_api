@@ -9,7 +9,6 @@ Exemplo de como criar uma URA dinâmica, consumindo uma API externa com Asterisk
 same=>n,NoOp(Regra Custom - Inicio)
 same=>n,Answer()
 same=>n,NoOp(Definindo variaveis)
-same=>n,Set(VENDAS_DST=C_3_INT,102,1)
 same=>n,Set(URA_PRINCIPAL=C_3_INT,2000,1)
 same=>n,Set(PROJ_FOLDER=/home/tatianno/ura_api)
 same=>n,AGI(${PROJ_FOLDER}/main.py)
