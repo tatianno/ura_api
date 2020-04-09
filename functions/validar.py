@@ -24,7 +24,7 @@ def dados(recebidos={}):
     dados = {}
     #Validando dados do cliente
     if 'ecliente' in recebidos:
-        if dados['ecliente'] == 'S':
+        if recebidos['ecliente'] == 'S':
             dados['ecliente'] = True
         else: 
             dados['ecliente'] = False
