@@ -10,6 +10,7 @@ def dados(recebidos={}):
                 "placa": "EQS1423",
                 "vigencia": "29/11/2020",
                 "status_contrato": "ATIVO",
+                "sinistro": "N,
                 "adimplente": "S",
                 "valor_inadimplente": "0",
                 "titulo": "",
@@ -25,11 +26,11 @@ def dados(recebidos={}):
     #Validando dados do cliente
     if 'ecliente' in recebidos:
         if recebidos['ecliente'] == 'S':
-            dados['ecliente'] = True
+            dados['ecliente'] = 'S'
         else: 
-            dados['ecliente'] = False
+            dados['ecliente'] = 'N'
     else:
-        dados['ecliente'] = False
+        dados['ecliente'] = 'N'
 
     #Verificando contratos
     if 'veiculos' in recebidos:
@@ -53,20 +54,20 @@ def dados(recebidos={}):
                         sinistro_list.append('N')
         
             if 'N' in adimplente_list:
-                dados['inadimplente'] = True
+                dados['inadimplente'] = 'S'
             else:
-                dados['inadimplente'] = False 
+                dados['inadimplente'] = 'N' 
 
             if 'N' in sinistro_list:
-                dados['sinistro'] = True
+                dados['sinistro'] = 'S'
             else:
-                dados['sinistro'] = False
+                dados['sinistro'] = 'N'
 
         else:
             #Cadastro invalido
-            dados['ecliente'] = False
+            dados['ecliente'] = 'N'
     else:
         #dados invalidos
-        dados['ecliente'] = False
+        dados['ecliente'] = 'N'
 
     return dados
