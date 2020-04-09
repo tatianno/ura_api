@@ -30,8 +30,10 @@ r = api.get(CPF)
 agi.verbose("Resultado GET: %s" % r.status_code)
 agi.verbose("Resposta: %s" % r.text)
 if r.status_code == 200:
+    agi.verbose("Tratando resposta")
     dados = validar.dados(json.loads(r.text))
     #Setando variaveis no Asterisk
+    agi.verbose("Setando Variaveis")
     agi.set_variable('_ECLIENTE',dados['ecliente'])
     agi.set_variable('_SINISTRO',dados['SINISTRO'])
     agi.set_variable('_INADIMPLENTE',dados['INADIMPLENTE'])
