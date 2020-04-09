@@ -1,1 +1,0 @@
-url_api = 'http://54.94.135.76:82/autoteste/pabx.asp?cpf='
