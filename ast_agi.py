@@ -28,6 +28,7 @@ CPF = agi.get_variable('CPF')
 #Enviando requisicao para obter dados do CPF informado
 r = api.get(CPF)
 agi.verbose("Resultado GET: %s" % r.status_code)
+agi.verbose("Resposta: %s" % r.text)
 if r.status_code == 200:
     dados = validar.dados(json.loads(r.text))
     #Setando variaveis no Asterisk
