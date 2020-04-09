@@ -16,7 +16,7 @@ def dados(recebidos={}):
                 "titulo": "",
                 "vencimento": "",
                 "valor": "",
-                "barras": "",
+                "barras": ""
             }
         ],
         "atualizado_em": "09/04/2020"
@@ -66,8 +66,12 @@ def dados(recebidos={}):
         else:
             #Cadastro invalido
             dados['ecliente'] = 'N'
+            dados['inadimplente'] = 'N'
+            dados['sinistro'] = 'N'
     else:
         #dados invalidos
         dados['ecliente'] = 'N'
+        dados['inadimplente'] = 'N'
+        dados['sinistro'] = 'N'
 
     return dados

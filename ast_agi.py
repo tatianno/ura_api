@@ -27,9 +27,18 @@ agi.verbose("Resposta: %s" % r.text)
 
 if r.status_code == 200:
     agi.verbose("Tratando resposta")
-    #dados = validar.dados(json.loads(r.text))
-    text = '{"cpf": "29622747817","ecliente": "S","veiculos": [{"placa": "EQS1423","vigencia": "29/11/2020","status_contrato": "ATIVO","adimplente": "S","valor_inadimplente": "0","titulo": "","vencimento": "","valor": "","barras": ""}],"atualizado_em": "09/04/2020"}'
-    dados = validar.dados(json.loads(text))
+    
+    try: 
+        dados = validar.dados(json.loads(r.text))
+        agi.verbose(dados)
+    except:
+        dados = {
+            'ecliente' : 'N',
+            'sinistro' :'N',
+            'inadimplente' : 'N'
+        }
+        agi.verbose("Dados recebidos em um formato invalido")
+
     agi.verbose("Setando variaveis")
     #Setando variaveis no Asterisk
     agi.set_variable('_ECLIENTE',dados['ecliente'])
