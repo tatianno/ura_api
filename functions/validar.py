@@ -39,6 +39,7 @@ def dados(recebidos={}):
             for veiculo in recebidos['veiculos']:
 
                 #Verificando se o contrato está inadimplente
+                print(recebidos['veiculos']['veiculo'])
                 if 'adimplente' in recebidos['veiculos']['veiculo']:
                     if recebidos['veiculos']['veiculo']['adimplente'] == 'S':
                         adimplente_list.append('S')
