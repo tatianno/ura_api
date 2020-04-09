@@ -29,10 +29,8 @@ if r.status_code == 200:
     agi.verbose("Tratando resposta")
     
     try: 
-        #dados = validar.dados(json.loads(r.text))
-        text = '{"cpf": "46760769830","ecliente": "S","veiculos": [{"placa": "BXD7520","vigencia": "05/09/2020","status_contrato": "ATIVO","adimplente": "S","valor_inadimplente": "0","titulo": "9","vencimento": "17/04/2020","valor": "106","barras": "34191090082499268126283109660007182280000010600"}],"atualizado_em": "09/04/2020"}'
-        dados = validar.dados(json.loads(text))
-        agi.verbose(dados)
+        dados = validar.dados(json.loads(r.text))
+        agi.verbose(str(dados))
     except:
         dados = {
             'ecliente' : 'N',
