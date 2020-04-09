@@ -10,11 +10,6 @@ from settings import proj_folder
 #Criando objetos
 agi = AGI()
 
-def encaminhar_vendas():
-    agi.verbose("Encaminhando a chamada para o grupo de vendas")
-    agi.appexec('Goto','${VENDAS_DST}')
-
-
 #Logica CPF
 ANI = agi.env['agi_callerid']
 agi.set_variable('_ANI',ANI)
@@ -29,28 +24,14 @@ CPF = agi.get_variable('CPF')
 r = api.get(CPF)
 agi.verbose("Resultado GET: %s" % r.status_code)
 agi.verbose("Resposta: %s" % r.text)
+
 if r.status_code == 200:
     agi.verbose("Tratando resposta")
     dados = validar.dados(json.loads(r.text))
     #Setando variaveis no Asterisk
-    agi.verbose("Setando Variaveis")
+    agi.verbose(str(dados))
     agi.set_variable('_ECLIENTE',dados['ecliente'])
     agi.set_variable('_SINISTRO',dados['SINISTRO'])
     agi.set_variable('_INADIMPLENTE',dados['INADIMPLENTE'])
-
-    if dados['ecliente']:
-        #Caso seja cliente
-        agi.verbose("Cliente localizado")
-
-
-    else:
-        #Caso não seja cliente
-        agi.verbose("Cliente nao localizado")
-        encaminhar_vendas()
-
-else:
-    #Caso ocorra erro na comunicacao
-    agi.verbose("Falha na comunicacao com a API")
-    encaminhar_vendas()
 
 sys.exit()
