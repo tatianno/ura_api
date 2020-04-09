@@ -2,3 +2,4 @@
 #Configuraçoes gerais do sistema'''
 
 proj_folder = '/home/tatianno/ura_api'
+

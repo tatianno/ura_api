@@ -1,6 +1,5 @@
 import requests
-
-url_api = 'http://54.94.135.76:82/autoteste/pabx.asp?cpf='
+from settings import url_api
 
 def get(CPF):
     url = url_api + str(CPF)
